@@ -1,0 +1,35 @@
+body,
+html {
+  height: 100%;
+  font-family: "Barriecito", cursive;
+  font-size: 2rem;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  background-color: yellow;
+  width: 97%;
+  height: 100%;
+  margin: 0px auto;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+p:nth-child(odd) {
+  outline: 1px solid blue;
+}
+
+p:nth-child(even) {
+  outline: 1px solid red;
+}
