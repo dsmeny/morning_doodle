@@ -39,29 +39,15 @@ doodle.addEventListener("keypress", function(e) {
   }
 });
 
-// User scroll
-let scrollEvent = true;
-
-const scrolled = e => {
-  let scrollPosition = Math.round(e.currentTarget.scrollY);
-  if (scrollPosition < 50) {
-    head.classList.remove("sticky--header");
-    init();
-  } else if (scrollPosition > 50) {
+// User scrolled
+let headTop = head.offsetTop;
+function scrolled() {
+  if (window.scrollY >= headTop) {
+    document.body.style.paddingTop = 0.3 + "px";
     head.classList.add("sticky--header");
-    scrollEvent = false;
-    init();
-    scrollEvent = true;
-  }
-};
-
-function init() {
-  console.log(scrollEvent);
-  if (!scrollEvent) {
-    window.removeEventListener("scroll", scrolled);
-    if (scrollEvent) {
-      window.addEventListener("scroll", scrolled);
-    }
+  } else {
+    document.body.style.paddingTop = 0;
+    head.classList.remove("sticky--header");
   }
 }
 
