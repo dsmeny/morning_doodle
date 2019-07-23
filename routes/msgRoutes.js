@@ -9,7 +9,7 @@ router
   .get(obj.getAllMessages)
   .post(obj.createMessage);
 
-router.route("/:id").get(obj.getMessage);
+// router.route("/:id").get(obj.getMessage);
 //   .patch(obj.updateMessage)
 //   .delete(obj.deleteMessage);
 
