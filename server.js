@@ -13,9 +13,12 @@ const DB = process.env.DATABASE.replace(
 );
 
 // SERVER
-mongoose.connect(DB, { useNewUrlParser: true }).then(() => {
-  console.log("Now connected to mongoDB");
-});
+mongoose
+  .connect(DB, { useNewUrlParser: true })
+  .then(() => {
+    console.log("Now connected to mongoDB");
+  })
+  .catch(err => console.error("Could not connect to MongoDB..."));
 
 const port = process.env.PORT || 3000;
 
