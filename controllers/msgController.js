@@ -35,12 +35,10 @@ exports.getAllMessages = async (req, res) => {
   }
 };
 
-// exports.getMessage = async (req, res) => {
+// exports.getAllMessages = async (req, res) => {
 //   try {
-//     let output;
-//     const message = await Message.findById(req.params.id);
-//     const result = messageView.stringObject(message);
-//     output = messageView.replaceTemplate(template, "<%content%>", result);
+//     const message = Message.find();
+//     const output = await message;
 
 //     res.status(200).send(output);
 //   } catch (err) {
@@ -50,6 +48,22 @@ exports.getAllMessages = async (req, res) => {
 //     });
 //   }
 // };
+
+exports.getMessage = async (req, res) => {
+  try {
+    let output;
+    const message = await Message.findById(req.params.id);
+    const result = messageView.stringObject(message);
+    output = messageView.replaceTemplate(template, "<%content%>", result);
+
+    res.status(200).send(output);
+  } catch (err) {
+    res.status(400).send({
+      status: "Bad request",
+      message: "Message not received"
+    });
+  }
+};
 
 exports.createMessage = async (req, res) => {
   try {
