@@ -8,10 +8,7 @@ exports.getAllMessages = async (req, res) => {
       messages
     });
   } catch (err) {
-    res.status(400).send({
-      status: "Error 400: Bad request",
-      message: err.message
-    });
+    console.log(err.captureStackTrace);
   }
 };
 
@@ -24,9 +21,6 @@ exports.createMessage = async (req, res) => {
     await message.save();
     res.status(200).redirect("/");
   } catch (err) {
-    res.status(400).send({
-      status: "Error 400: Bad request",
-      message: err.message
-    });
+    console.log(err.captureStackTrace);
   }
 };
