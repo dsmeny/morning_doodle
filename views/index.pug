@@ -1,0 +1,9 @@
+extends layout
+
+block content 
+    header(class='doodle__header')
+        h1(class="doodle__title") #{title}
+        include add_message.pug
+    div(class="wrapper")
+        each message, i in messages 
+            p(class="flip-card-front")= message.message
